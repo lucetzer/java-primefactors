@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.ArrayList;
 
 /**
  * Created by lucetzer on 19/02/2016.
@@ -7,7 +7,6 @@ public class PrimeFactor {
   int number;
   ArrayList<Integer> factors = new ArrayList<>();
   ArrayList<Integer> primes = new ArrayList<>();
-
 
   PrimeFactor(int n) {
     number = n;
@@ -31,15 +30,22 @@ public class PrimeFactor {
     for (int e : factors) {
       isPrime(e);
     }
-    for (int e : primes) {
-      System.out.println(e);
-    }
+    printPrimes();
     return primes;
   }
 
+  void printPrimes() {
+    if (primes.size() >= 1) {
+      System.out.print(primes.get(0));
+    }
+
+    for(int i = 1; i < primes.size(); i++) {
+      System.out.print(", " + primes.get(i));
+    }
+  }
+
   public static void main(String[] args) {
-    PrimeFactor primeTest = new PrimeFactor(30);
-    primeTest.findFactors();
-    new PrimeFactor(1);
+    new PrimeFactor(30).findFactors();
+    new PrimeFactor(1).findFactors();
   }
 }
